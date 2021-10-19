@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
+    <link rel="stylesheet" href="/assets/styles/bootstrapmin.css" />
+    <link rel="stylesheet" href="/assets/styles/bootstrapselectmin.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="/assets/js/contest.js" defer></script>
+    <script src="js/music-list.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="/assets/js/axiosmin.js" defer></script>
+    <title>Constest Uptdate</title>
+  </head>
+  <body>
+    <header>
+      <ul
+        class="nav nav-tabs nav-fill mb-3 justify-content-around"
+        id="pills-tab nav-ul"
+        role="tablist"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link active custom-tab"
+            id="pills-contest-tab"
+            data-toggle="pill"
+            href="#pills-contest"
+            role="tab"
+            aria-controls="pills-contest"
+            aria-selected="true"
+          >
+            <b><span style="color: #2eb6f9"> <> </span> Contest</b></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link custom-tab"
+            id="pills-music-tab"
+            data-toggle="pill"
+            href="#pills-music"
+            role="tab"
+            aria-controls="pills-music"
+            aria-selected="false"
+          >
+            <img
+              src="https://img.icons8.com/office/23/000000/musical-notes.png"
+            />
+            &nbsp;<b>Music</b></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link custom-tab"
+            id="pills-chat-tab"
+            data-toggle="pill"
+            href="#pills-chat"
+            role="tab"
+            aria-controls="pills-chat"
+            aria-selected="false"
+            ><img
+              src="https://img.icons8.com/fluency/23/000000/headphones.png"
+            />
+            <b>Chat</b></a
+          >
+        </li>
+      </ul>
+    </header>
+
+    <main class="tab-content" id="pills-tabContent">
+      <section
+        class="tab-pane fade show active"
+        id="pills-contest"
+        role="tabpanel"
+        aria-labelledby="pills-contest-tab"
+      >
+        <div class="row">
+          <div class="col-12 d-flex mb-3 justify-content-around">
+            <div class="form-check form-check-inline">
+              <button
+                type="button"
+                class="btn btn-outline-primary after-click"
+                id="ongoing"
+                onclick="onClickBtn(this.id)"
+              >
+                Ongoing
+              </button>
+            </div>
+            <div class="form-check form-check-inline">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="today"
+                onclick="onClickBtn(this.id)"
+              >
+                Today
+              </button>
+            </div>
+            <div class="form-check form-check-inline">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                id="upcoming"
+                onclick="onClickBtn(this.id)"
+              >
+                Upcoming
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="search-bar">
+          <div class="col-8 d-flex justify-content-around">
+            <!-- Multiselect dropdown -->
+            <select
+              multiple
+              data-style="bg-white rounded-pill px-4 shadow-sm "
+              class="selectpicker"
+              id="contest-platform"
+              onchange="getContestPlatform();"
+            >
+              <option value="CodeForces">CodeForces</option>
+              <option value="CodeChef">CodeChef</option>
+              <option value="LeetCode">LeetCode</option>
+              <option value="HackerEarth">HackerEarth</option>
+              <option value="HackerRank">HackerRank</option>
+              <option value="KickStart">KickStart</option>
+              <option value="AtCoder">Atcoder</option>
+              <option value="TopCoder">TopCoder</option></select
+            ><!-- End -->
+          </div>
+          <div class="col-4 d-flex justify-content-around">
+            <button type="button" class="btn btn-success" id="filter-btn">
+              Filter
+            </button>
+          </div>
+        </div>
+
+        <section id="contest-details">
+          <!-- Dynamically code will be updated here -->
+        </section>
+      </section>
+      <!-- </div> -->
+
+      <section
+        class="tab-pane fade"
+        id="pills-music"
+        role="tabpanel"
+        aria-labelledby="pills-music-tab"
+      >
+        <div class="wrapper">
+          <div class="song-details">
+            <p class="name"></p>
+            <p class="artist"></p>
+          </div>
+          <div class="img-area">
+            <img src="" alt="" />
+          </div>
+
+          <div class="controls">
+            <i id="repeat-plist" class="material-icons" title="Playlist looped"
+              >repeat</i
+            >
+            <i id="prev" class="material-icons">skip_previous</i>
+            <div class="play-pause">
+              <i class="material-icons play">play_arrow</i>
+            </div>
+            <i id="next" class="material-icons">skip_next</i>
+            <i id="more-music" class="material-icons">queue_music</i>
+          </div>
+          <div class="progress-area">
+            <div class="progress-bar">
+              <audio id="main-audio" src=""></audio>
+            </div>
+            <div class="song-timer">
+              <span class="current-time">0:00</span>
+              <span class="max-duration">0:00</span>
+            </div>
+          </div>
+          <div class="music-list">
+            <div class="header">
+              <div class="row">
+                <i class="list material-icons">queue_music</i>
+                <span>Music list</span>
+              </div>
+              <i id="close" class="material-icons">close</i>
+            </div>
+            <ul>
+              <!-- here li list are coming from js -->
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Rishabh's code -->
+      <section
+        class="tab-pane fade"
+        id="pills-chat"
+        role="tabpanel"
+        aria-labelledby="pills-chat-tab"
+      >
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete" style="width: 300px">
+            <input
+              id="myInput"
+              type="text"
+              name="myCountry"
+              placeholder="Country"
+            />
+          </div>
+          <input type="submit" />
+        </form>
+      </section>
+    </main>
+    <script src="/assets/js/jqueryslimmin.js"></script>
+    <script src="/assets/js/bootstrapbundle.js"></script>
+    <script src="/assets/js/bootstrapselectmin.js"></script>
+    <script src="/assets/js/icon.js"></script>
+  </body>
+</html>

@@ -110,6 +110,8 @@ Follow the given instructions to setup this project locally.
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
+we can't publish our extension beacuse it take 10 days for review, If you want to use now load this repo into your system and go in the setting of browser and there is a "Extension" section, go in there are use "Load Unpacked", Then you can use our Extension in your browser.
+
 
 
 <!-- CONTACT -->

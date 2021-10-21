@@ -17,6 +17,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#note">Note</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -26,8 +27,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 We have build a browser extension using MERN where user can find competitive contest and hackathons schedule from many coding platforms, we also embedded a music player and a platform to search for the available algorithms at the extension only without changing tab with the masterpiece for future coders to contribute on a open source for the developing of a database consisting of algorithm.
 
@@ -111,7 +110,7 @@ Follow the given instructions to setup this project locally.
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
-Note:
+## Note
 We can't publish our extension right now beacuse it take 10 days for review, If you want to use now only then load this repo into your system and go in the setting of browser and there is a "Extension" section, go in there are use "Load Unpacked", Then you can use our Extension in your browser.
 
 Although we had added our open source Algorithm database on the herokuapp, you can visit using the given link.

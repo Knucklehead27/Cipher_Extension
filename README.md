@@ -110,8 +110,12 @@ Follow the given instructions to setup this project locally.
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-we can't publish our extension beacuse it take 10 days for review, If you want to use now load this repo into your system and go in the setting of browser and there is a "Extension" section, go in there are use "Load Unpacked", Then you can use our Extension in your browser.
 
+Note:
+We can't publish our extension right now beacuse it take 10 days for review, If you want to use now only then load this repo into your system and go in the setting of browser and there is a "Extension" section, go in there are use "Load Unpacked", Then you can use our Extension in your browser.
+
+Although we had added our open source Algorithm database on the herokuapp, you can visit using the given link.
+Database project link : [Algo-Extension-Database](https://algo-extension.herokuapp.com/)
 
 
 <!-- CONTACT -->
@@ -121,5 +125,5 @@ Phone:- 9528303487 Email:- maarachna@gmail.com
 Phone:- 8290786228 Email:- shivam.cse.1954@iiitbh.ac.in.com
 Phone:- 8290040908 Email:- tarunkanojiawork@gmail.com
 
-Database project link : [Algo-Extension-Database](https://algo-extension.herokuapp.com/)
+
 

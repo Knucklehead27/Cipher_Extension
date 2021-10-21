@@ -113,7 +113,7 @@ const display = async (result) => {
     <div class="content" id="info${i}">
     <div class="row">
     <div class="col-2">
-    <a href=${element.url}>
+    <a href=${element.url} target="blank">
     <img
     src="./assets/logo/link_icon.png"
     alt=""
@@ -170,7 +170,7 @@ const fetchContest = async () => {
     // console.log(contestArray);
   } catch (error) {
     alert(error);
-  }
+  } 
 };
 
 $(async function () {
@@ -186,6 +186,8 @@ filterBtn.addEventListener("click", async function () {
   display(result);
 });
 
+document.getElementById("contest-platform").onchange = getContestPlatform();
+
 function getContestPlatform() {
   var platform = [];
   for (var option of document.getElementById("contest-platform").options) {
@@ -197,13 +199,25 @@ function getContestPlatform() {
   return platform;
 }
 
-function onClickBtn(eventID) {
-  phase = eventID;
-  if (phase == "ongoing") {
-    display(ongoing);
-  } else if (phase == "today") {
-    display(today);
-  } else {
-    display(upcoming);
-  }
-}
+ong.addEventListener("click", () => {
+  ong.classList.add("after-click");
+  tod.classList.remove("after-click");
+  upc.classList.remove("after-click");
+  phase = "ongoing";
+  display(ongoing);
+});
+tod.addEventListener("click", () => {
+  tod.classList.add("after-click");
+  ong.classList.remove("after-click");
+  upc.classList.remove("after-click");
+  phase = "today";
+  display(today);
+});
+upc.addEventListener("click", () => {
+  upc.classList.add("after-click");
+  tod.classList.remove("after-click");
+  ong.classList.remove("after-click");
+  phase = "upcoming";
+  display(upcoming);
+});
+

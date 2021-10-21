@@ -24,6 +24,7 @@
     <script src="/assets/js/axiosmin.js" defer></script>
     <title>Constest Uptdate</title>
   </head>
+
   <body>
     <header>
       <ul
@@ -69,11 +70,10 @@
             role="tab"
             aria-controls="pills-chat"
             aria-selected="false"
-            ><img
-              src="https://img.icons8.com/fluency/23/000000/headphones.png"
-            />
-            <b>Chat</b></a
           >
+            <!-- <img src="https://img.icons8.com/fluency/23/000000/headphones.png"/> -->
+            <span> <> </span> <b>ALgorithm</b>
+          </a>
         </li>
       </ul>
     </header>
@@ -200,28 +200,61 @@
             </ul>
           </div>
         </div>
-        
       </section>
-      <!-- Rishabh's code -->
+      <!-- Sohail's code -->
+
       <section
         class="tab-pane fade"
         id="pills-chat"
         role="tabpanel"
         aria-labelledby="pills-chat-tab"
       >
-        <form autocomplete="off" action="/action_page.php">
-          <div class="autocomplete" style="width: 300px">
+        <form autocomplete="off" class="input-form">
+          <div class="autocomplete" style="width: 300px" ">
             <input
               id="myInput"
               type="text"
               name="myCountry"
-              placeholder="Country"
+              placeholder="search"
             />
           </div>
-          <input type="submit" />
+          <input type="button" value="Search" class="btn btn-round btn-primary" id="submitBtn" />
         </form>
+        <section class=" row justify-content-center" id="codeEdi">
+          <!-- <div class="window" id="container1">
+            <div class="window-header">
+              <div class="action-buttons"></div>
+            </div>
+            <div class="window-body">
+            <textarea class="code-input" readonly>Hello</textarea>
+            </div>
+          </div> -->
+        </section>
+        <!-- Section for Buttons -->
+        <section>
+          <div class="container myclass">
+            <a
+              href="#"
+              id="donationBtn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Buy us a Coffee</a
+            >
+            <span> &nbsp; | &nbsp; </span>
+            <a
+              href="#"
+              id="contributionBtn"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Want to Contribute?</a
+            >
+          </div>
+        </section>
       </section>
+
+      <!-- end -->
     </main>
+    <!-- <script src="/js/Codeeditor.js"></script> -->
     <script src="/assets/js/jqueryslimmin.js"></script>
     <script src="/assets/js/bootstrapbundle.js"></script>
     <script src="/assets/js/bootstrapselectmin.js"></script>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+    />
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      *:focus {
+        outline: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      #container1 {
+        height: fit-content;
+
+        overflow: scroll;
+      }
+
+      #container1::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Code Editor Code By sohail */
+
+      /* For Algorithm */
+      .window {
+        width: 200%;
+        background: #264653;
+        border-radius: 0.3rem;
+        /* box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); */
+        overflow: hidden;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
+      .window .window-header {
+        height: 30px;
+        background: Gainsboro;
+        position: relative;
+      }
+
+      .window .window-header .action-buttons {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -5px;
+        width: 10px;
+        height: 10px;
+        background: Crimson;
+        border-radius: 50%;
+        box-shadow: 15px 0 0 Orange, 30px 0 0 LimeGreen;
+      }
+
+      .window .window-body {
+        position: relative;
+        height: 300px;
+      }
+
+      .window .window-body .code-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        border: none;
+        font-family: "PT Mono", monospace;
+        font-size: 0.8rem;
+        background: transparent;
+        white-space: pre-wrap;
+        line-height: 1.5em;
+        word-wrap: break-word;
+      }
+
+      .window .window-body .code-input {
+        opacity: 1;
+        margin: 0;
+        color: Gainsboro;
+        resize: none;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container mx-auto my-20 w-1/2 border border-blue-500 bg-white">
+      <div class="p-5 space-y-5 shadow-xl">
+        <h4 class="text-center text-3xl">ALGORITHM</h4>
+
+        <form action="https://algo-extension.herokuapp.com/algorithm/contribute" method="POST">
+          <div class="grid grid-cols-2 gap-5">
+            <input
+              type="text"
+              class="
+                border border-gray-800
+                px-4
+                py-2
+                focus:outline-none focus:border-blue-500
+                col-span-2
+              "
+              placeholder="Algorithm Name"
+              name="name"
+            />
+            <input
+              type="link"
+              class="
+                border border-gray-800
+                px-4
+                py-2
+                focus:outline-none focus:border-blue-500
+                col-span-2
+              "
+              placeholder="Practice Problem Link"
+              name="practiceLink"
+            /> 
+
+          <textarea
+            cols="10"
+            rows="5"
+            class="
+              border border-gray-800
+              px-4
+              py-2
+              focus:outline-none focus:border-blue-500
+              col-span-2
+            "
+            placeholder="Explanation"
+            name="description"
+          ></textarea>
+
+          <section class="d-flex justify-content-center">
+            <div class="window" id="container1">
+              <div class="window-header">
+                <div class="action-buttons"></div>
+              </div>
+              <div class="window-body">
+                <textarea class="code-input" name="code"> </textarea>
+              </div>
+            </div>
+          </section>
+          </div>
+
+          <div>
+            <input
+              type="submit"
+              value="submit"
+              class="
+                focus:outline-none
+                mt-5
+                bg-blue-500
+                px-4
+                py-2
+                text-white
+                font-bold
+                w-full
+              "
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

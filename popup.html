@@ -28,7 +28,7 @@
   <body>
     <header>
       <ul
-        class="nav nav-tabs nav-fill mb-3 justify-content-around"
+        class="nav nav-tabs nav-fill  justify-content-around"
         id="pills-tab nav-ul"
         role="tablist"
       >
@@ -70,8 +70,8 @@
         role="tabpanel"
         aria-labelledby="pills-contest-tab"
       >
-        <div class="row">
-          <div class="col-12 d-flex mb-3 justify-content-around">
+        <div class="">
+          <div class="col-12 d-flex mb-3 justify-content-around contest-time">
             <div class="form-check form-check-inline">
               <button
                 type="button"
@@ -104,8 +104,8 @@
             </div>
           </div>
         </div>
-        <div class="row" id="search-bar">
-          <div class="col-8 d-flex justify-content-around">
+        <div class="row ml-2 mr-2" id="search-bar">
+          <div class="srhEl pr-0 d-flex">
             <!-- Multiselect dropdown -->
             <select
               multiple
@@ -124,16 +124,33 @@
               <option value="TopCoder">TopCoder</option></select
             ><!-- End -->
           </div>
-          <div class="col-4 d-flex justify-content-around">
-            <button type="button" class="btn btn-success" id="filter-btn">
-              Filter
-            </button>
+          <div class="filter">
+            
+            <img src="./images/icons8-filter-64.png" id="filter-btn" alt="">
+            
           </div>
         </div>
 
         <section id="contest-details">
           <!-- Dynamically code will be updated here -->
         </section>
+
+        <section class="contribute d-flex justify-content-center">
+          <div class="d-flex justify-content border-right">
+            
+            <p>Contribute?</p>
+            &nbsp;
+            <img src="./images/helping-hand-256.png" alt="" id="icon-size">
+            &nbsp;
+          </div>
+          <div class="d-flex justify-content-around">
+            &nbsp;
+            <img src="./images/deafultUser.png" id="icon-size" alt="">
+            &nbsp;
+            <p>PROFILE</p>
+          </div>
+        </section>
+
       </section>
       <!-- </div> -->
 

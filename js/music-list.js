@@ -1,4 +1,4 @@
-const codeEdi = document.getElementById('codeEdi');
+const codeEdi = document.getElementById('editor-content');
 // To add more song, just copy the following code and paste inside the array
 
 //   {
@@ -176,28 +176,49 @@ const editorDisplay = (res)=>{
   if(res.length>0){
     codeEdi.innerHTML = ``;
   }
-  res.forEach(element => {
-    codeEdi.innerHTML += `<div class="window " id="container1">
-    <div class="window-header">
-      <div class="action-buttons"></div>
+  codeEdi.innerHTML += `<div class="carousel-item active">
+    <div class="window" id="container1">
+      <div class="window-header">
+        <div class="action-buttons"></div>
+      </div>
+      <div class="window-body">
+        <textarea class="code-input" readonly>
+  ${res[0]}</textarea
+        >
+      </div>
     </div>
-    <div class="window-body">
-    <textarea class="code-input" readonly>${element}</textarea>
+  </div>`;
+  
+  for(let i = 1; i<res.length; i++){
+    codeEdi.innerHTML += `<div class="carousel-item">
+    <div class="window" id="container1">
+      <div class="window-header">
+        <div class="action-buttons"></div>
+      </div>
+      <div class="window-body">
+        <textarea class="code-input" readonly>
+  ${res[i]}</textarea
+        >
+      </div>
     </div>
   </div>`
-  });
+  }
 }
 $(async function () {
   $(".selectpicker").selectpicker();
   await fetchlist();
   let arr = [];
-  codeEdi.innerHTML = `<div class="window" id="container1">
-  <div class="window-header ">
-    <div class="action-buttons"></div>
-  </div>
-  <div class="window-body">
-  <textarea class="code-input" readonly>//Search for any algorithm in the search bar 
-  and if you want to contribute to our open source then please click on contribute button.</textarea>
+  codeEdi.innerHTML = `<div class="carousel-item active">
+  <div class="window" id="container1">
+    <div class="window-header">
+      <div class="action-buttons"></div>
+    </div>
+    <div class="window-body">
+      <textarea class="code-input" readonly>
+Search for any algorithm in the search bar 
+       and if you want to contribute to our open source then please click on contribute button.</textarea
+      >
+    </div>
   </div>
 </div>`
   // editorDisplay(arr);

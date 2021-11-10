@@ -183,6 +183,7 @@ const editorDisplay = (res)=>{
           <img src="./images/ink-96.png" class="Link">
           <p style="color:black">Algo Name</p>
           <img src="./images/icons8-copy-96.png" onclick="toDashboard()" class="copy"></div>
+          <span id="custom-tooltip">copied!</sapn>
       </div>
       <div class="window-body">
         <textarea class="code-input" id="dataToCopy" readonly>
@@ -200,6 +201,7 @@ const editorDisplay = (res)=>{
           <img src="./images/ink-96.png" class="Link" >
           <p style="color:black">Algo Name</p>
           <img src="./images/icons8-copy-96.png" onclick="toDashboard()" class="copy">
+          <span id="custom-tooltip">copied!</sapn>
         </div>
       </div>
       <div class="window-body">
@@ -253,4 +255,10 @@ function toDashboard(){
   let content = document.getElementById("dataToCopy");
   content.select();
   document.execCommand("copy");
+  document.getElementById("custom-tooltip").style.display = "inline";
+    document.execCommand("copy");
+    setTimeout( function() {
+        document.getElementById("custom-tooltip").style.display = "none";
+    }, 1000);
+
 }

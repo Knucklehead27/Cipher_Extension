@@ -755,3 +755,15 @@ input[type="submit"] {
   width: 40PX;
   height: 36px; 
 }
+
+#custom-tooltip {
+  display: none;
+  margin-left:365px;
+  padding: 5px 12px;
+  background-color: #00B1FD;
+  border-radius: 4px;
+  color: #fff;
+  position: relative;
+  top: 35px;
+  z-index: 9;
+}

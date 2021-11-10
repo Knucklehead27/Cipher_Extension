@@ -199,6 +199,9 @@ details > summary::-webkit-details-marker {
 #contest-platform {
   width: 300px;
 }
+.dropdown-menu{
+  max-height: 190px;
+}
 
 
 .contribute{
@@ -541,18 +544,19 @@ input {
 }
 
 .input-form {
-  margin: 0px 40px 0px 40px;
+  margin: 0px 40px 0px 80px;
 }
 
 #submitBtn {
   margin-left: -4px;
-  width: 90px;
+  /*width: 90px;*/
   border-radius: 0px 20px 20px 0p;
   /* height: 41px; */
 }
 
 input[type="text"] {
   /* margin-right: 40px; */
+  height:40px;
   border-radius: 20px 0px 0px 20px;
   background-color: #f1f1f1;
   width: 100%;
@@ -577,6 +581,9 @@ input[type="submit"] {
   top: 100%;
   left: 0;
   right: 0;
+  margin-top:2px;
+  border-radius:5px;
+  width:283px;
 }
 .autocomplete-items::-webkit-scrollbar {
   display: none;
@@ -612,7 +619,7 @@ input[type="submit"] {
 #container1 {
   height: 250px;
   overflow-y: scroll;
-  margin-top: 25px;
+  /*margin-top: 25px;*/
 }
 
 #container1::-webkit-scrollbar {
@@ -635,20 +642,22 @@ input[type="submit"] {
 }
 .window .window-header {
   height: 30px;
-  background: Gainsboro;
+  background: #7ED8FF;
   position: relative;
 }
 .window .window-header .action-buttons {
   position: absolute;
-  top: 50%;
+  /*top: 50%;*/
   left: 10px;
-  margin-top: -5px;
-  width: 10px;
+  /*margin-top: -5px;*/
   height: 10px;
+  /*
+  width: 10px;
+  
   background: Crimson;
   border-radius: 50%;
   box-shadow: 15px 0 0 Orange,
-				30px 0 0 LimeGreen;
+				30px 0 0 LimeGreen;*/
 }
 .window .window-body {
   position: relative;
@@ -666,9 +675,9 @@ input[type="submit"] {
   height: 100%;
   padding: 1rem;
   border: none;
-  font-family: 'PT Mono', monospace;
+  /*font-family: 'PT Mono', monospace;*/
   font-size: 0.8rem;
-  background: transparent;
+  background: whitesmoke;
   white-space: pre-wrap;
   line-height: 1.5em;
   word-wrap: break-word;
@@ -676,10 +685,71 @@ input[type="submit"] {
 .window .window-body .code-input {
   opacity: 1;
   margin: 0;
-  color: ghostwhite;
+  color: black;
   resize: none;
+}
+.code-input::-webkit-scrollbar {
+  /* display: none; */
+  width: 4px;
+  
+
+}
+.code-input::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+
+.code-input::-webkit-scrollbar-thumb {
+  background-color: #00B1FD;
+  border-radius: 2px;
+  
 }
 
 #codeEdi{
   height:260px;
+}
+.carousel-control-prev{
+  left: -45px;;
+}
+.carousel-control-next{
+  right: -45px;;
+}
+
+/*Algorithm Header CSS*/
+
+.algo-header{
+  width:100%;
+  justify-content: space-around;
+}
+
+.Link{
+  height:17px;
+  width: 18px;
+  margin-left: -60px;
+  margin-top: 6px;
+}
+
+.copy{
+  height:17px;
+  width: 18px;
+  margin-right: -40px;
+  margin-top: 6px;
+}
+.filter{
+  position: relative;
+  right: 17px;
+  /* border: 1px solid white; */
+  background-color: white;
+  margin-right: 10px;
+  border-left: 1px solid black;
+  border-radius: 0px 40px 40px 0px;
+  height: 40px;
+  width: 50px;
+}
+
+.filter-search{
+  align-items: center;
+  cursor: pointer; 
+  padding: 5px 0px 0px 5px;
+  width: 40PX;
+  height: 36px; 
 }

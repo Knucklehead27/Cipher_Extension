@@ -179,7 +179,10 @@ const editorDisplay = (res)=>{
   codeEdi.innerHTML += `<div class="carousel-item active">
     <div class="window" id="container1">
       <div class="window-header">
-        <div class="action-buttons"></div>
+        <div class="action-buttons d-flex algo-header">
+          <img src="./images/ink-96.png" class="Link">
+          <p style="color:black">Algo Name</p>
+          <img src="./images/icons8-copy-96.png" class="copy"></div>
       </div>
       <div class="window-body">
         <textarea class="code-input" readonly>
@@ -193,7 +196,11 @@ const editorDisplay = (res)=>{
     codeEdi.innerHTML += `<div class="carousel-item">
     <div class="window" id="container1">
       <div class="window-header">
-        <div class="action-buttons"></div>
+        <div class="action-buttons d-flex algo-header">
+          <img src="./images/ink-96.png" class="Link" >
+          <p style="color:black">Algo Name</p>
+          <img src="./images/icons8-copy-96.png" class="copy">
+        </div>
       </div>
       <div class="window-body">
         <textarea class="code-input" readonly>

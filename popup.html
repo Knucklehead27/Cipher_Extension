@@ -156,7 +156,7 @@
         role="tabpanel"
         aria-labelledby="pills-chat-tab"
       >
-        <form autocomplete="off" class="input-form">
+        <form autocomplete="off" class="input-form d-flex">
           <div class="autocomplete" style="width: 300px">
             <input
               id="myInput"
@@ -165,12 +165,9 @@
               placeholder="search"
             />
           </div>
-          <input
-            type="button"
-            value="Search"
-            class="btn btn-round btn-primary"
-            id="submitBtn"
-          />
+          <div class="filter">
+            <img src="./images/icons8-search-500.png" id="submitBtn" class="filter-search" alt="" />
+          </div>
         </form>
         <section class="row justify-content-center" id="codeEdi">
           <!-- <div class="window" id="container1">
@@ -186,6 +183,7 @@
             id="carouselExampleControls"
             class="carousel slide"
             data-ride="carousel"
+            data-interval="false"
           >
             <div class="carousel-inner" id="editor-content">
               
@@ -217,25 +215,21 @@
           </div>
         </section>
         <!-- Section for Buttons -->
-        <section>
-          <div class="container myclass">
-            <a
-              href="#"
-              id="donationBtn"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Buy us a Coffee</a
-            >
-            <span> &nbsp; | &nbsp; </span>
-            <a
-              href="#"
-              id="contributionBtn"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Want to Contribute?</a
-            >
+        <section class="contribute d-flex justify-content-center">
+          <div class="d-flex justify-content border-right">
+            <p>Contribute?</p>
+            &nbsp;
+            <img src="./images/helping-hand-256.png" alt="" id="icon-size" />
+            &nbsp;
+          </div>
+          <div class="d-flex justify-content-around">
+            &nbsp;
+            <img src="./images/deafultUser.png" id="icon-size" alt="" />
+            &nbsp;
+            <p>PROFILE</p>
           </div>
         </section>
+      </section>
       </section>
 
       <!-- end -->

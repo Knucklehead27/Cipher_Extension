@@ -708,10 +708,12 @@ input[type="submit"] {
   height:260px;
 }
 .carousel-control-prev{
-  left: -45px;;
+  left: -25px;
+  width: 20px;
 }
 .carousel-control-next{
-  right: -45px;;
+  right: -25px;
+  width: 20px;
 }
 
 /*Algorithm Header CSS*/

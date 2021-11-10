@@ -182,10 +182,10 @@ const editorDisplay = (res)=>{
         <div class="action-buttons d-flex algo-header">
           <img src="./images/ink-96.png" class="Link">
           <p style="color:black">Algo Name</p>
-          <img src="./images/icons8-copy-96.png" class="copy"></div>
+          <img src="./images/icons8-copy-96.png" onclick="toDashboard()" class="copy"></div>
       </div>
       <div class="window-body">
-        <textarea class="code-input" readonly>
+        <textarea class="code-input" id="dataToCopy" readonly>
   ${res[0]}</textarea
         >
       </div>
@@ -199,11 +199,11 @@ const editorDisplay = (res)=>{
         <div class="action-buttons d-flex algo-header">
           <img src="./images/ink-96.png" class="Link" >
           <p style="color:black">Algo Name</p>
-          <img src="./images/icons8-copy-96.png" class="copy">
+          <img src="./images/icons8-copy-96.png" onclick="toDashboard()" class="copy">
         </div>
       </div>
       <div class="window-body">
-        <textarea class="code-input" readonly>
+        <textarea class="code-input" id="dataToCopy" readonly>
   ${res[i]}</textarea
         >
       </div>
@@ -246,3 +246,11 @@ const bringCode = async ()=>{
 document.getElementById("submitBtn").addEventListener("click", ()=>{
   bringCode();
 })
+
+function toDashboard(){
+  console.log("Working");
+
+  let content = document.getElementById("dataToCopy");
+  content.select();
+  document.execCommand("copy");
+}

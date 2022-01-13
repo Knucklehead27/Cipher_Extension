@@ -6,46 +6,30 @@ const filterBtn = document.getElementById("filter-btn");
 // var coll = document.querySelectorAll("collapsible");
 
 let phase = "ongoing";
-
-ong.addEventListener("click", () => {
-  ong.classList.add("after-click");
-  tod.classList.remove("after-click");
-  upc.classList.remove("after-click");
-});
-tod.addEventListener("click", () => {
-  tod.classList.add("after-click");
-  ong.classList.remove("after-click");
-  upc.classList.remove("after-click");
-});
-upc.addEventListener("click", () => {
-  upc.classList.add("after-click");
-  tod.classList.remove("after-click");
-  ong.classList.remove("after-click");
-});
-
+var platform = [];
 var contestArray = [];
 var ongoing = [];
 var today = [];
 var upcoming = [];
-const filterUpdate = async (filterArray) => {
+const filterUpdate = async () => {
   let resultArray = [];
-  if (filterArray.length != 0) {
+  if (platform.length != 0) {
     if (phase == "ongoing") {
-      await filterArray.forEach((platform) => {
+      await platform.forEach((plat) => {
         var add = [];
-        add = ongoing.filter((contest) => contest.site == platform);
+        add = ongoing.filter((contest) => contest.site == plat);
         resultArray.push(...add);
       });
     } else if (phase == "today") {
-      await filterArray.forEach((platform) => {
+      await platform.forEach((plat) => {
         var add = [];
-        add = today.filter((contest) => contest.site == platform);
+        add = today.filter((contest) => contest.site == plat);
         resultArray.push(...add);
       });
     } else {
-      await filterArray.forEach((platform) => {
+      await platform.forEach((plat) => {
         var add = [];
-        add = upcoming.filter((contest) => contest.site == platform);
+        add = upcoming.filter((contest) => contest.site == plat);
         resultArray.push(...add);
       });
     }
@@ -54,7 +38,7 @@ const filterUpdate = async (filterArray) => {
 };
 const display = async (result) => {
   let list = [];
-  console.log(result);
+  // console.log(result);
   contestDetails.innerHTML = ``;
   let i = 0;
   await result.forEach((element) => {
@@ -148,7 +132,7 @@ const display = async (result) => {
     i++;
   });
 
-  console.log("Result", result);
+  // console.log("Result", result);
 };
 
 const createPhase = async () => {
@@ -181,43 +165,76 @@ $(async function () {
 });
 
 filterBtn.addEventListener("click", async function () {
-  var platform = getContestPlatform();
-  const result = await filterUpdate(platform);
-  display(result);
+  getContestPlatform();
+  if(platform.length>0){
+    const result = await filterUpdate();
+    display(result);
+  }else{
+    if (phase == "ongoing") {
+      display(ongoing);
+    } else if (phase == "today") {
+      display(today);
+    } else {
+      display(upcoming);
+    }
+  }
 });
 
 document.getElementById("contest-platform").onchange = getContestPlatform();
 
-function getContestPlatform() {
-  var platform = [];
+function getContestPlatform() { 
+  var platformHelper = [];
   for (var option of document.getElementById("contest-platform").options) {
+    // console.log("hello");
     if (option.selected) {
-      platform.push(option.value);
+      platformHelper.push(option.value);
     }
   }
-  console.log(platform);
-  return platform;
+  platform = platformHelper;
+  // console.log("platform", platform);
+  // return platform;
 }
 
-ong.addEventListener("click", () => {
+ong.addEventListener("click", async () => {
   ong.classList.add("after-click");
   tod.classList.remove("after-click");
   upc.classList.remove("after-click");
   phase = "ongoing";
-  display(ongoing);
+  // console.log("platform", platform);
+  if(platform.length==0){
+    display(ongoing);
+  }else{
+    getContestPlatform();
+    const result = await filterUpdate();
+    display(result);
+  }
 });
-tod.addEventListener("click", () => {
+tod.addEventListener("click", async () => {
   tod.classList.add("after-click");
   ong.classList.remove("after-click");
   upc.classList.remove("after-click");
   phase = "today";
-  display(today);
+  // console.log("platform", platform);
+  if(platform.length==0){
+    display(today);
+  }else{
+    getContestPlatform();
+    const result = await filterUpdate();
+    display(result);
+  }
 });
-upc.addEventListener("click", () => {
+upc.addEventListener("click", async () => {
   upc.classList.add("after-click");
   tod.classList.remove("after-click");
   ong.classList.remove("after-click");
   phase = "upcoming";
-  display(upcoming);
+  // console.log("platform", platform);
+  if(platform.length==0){
+    display(upcoming);
+  }else{
+    getContestPlatform();
+    const result = await filterUpdate();
+    display(result);
+  }
 });
 

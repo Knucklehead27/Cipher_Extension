@@ -123,14 +123,13 @@ const editorDisplay = (res)=>{
     <div class="window" id="container1">
       <div class="window-header">
         <div class="action-buttons d-flex algo-header">
-          <img src="./images/ink-96.png" class="Link">
-          <p style="color:black">Algo Name</p>
+          <a href="${res[0].link}"><img src="./images/ink-96.png" class="Link"></a>
+          <p style="color:black">${res[0].name}</p>
           <img src="./images/icons8-copy-96.png" id="copied0" class="copy"></div>
-          <span id="custom-tooltip0">copied!</sapn>
+          <span id="custom-tooltip0" class="tootip01">copied!</sapn>
       </div>
       <div class="window-body">
-        <textarea class="code-input" id="dataToCopy0" readonly>
-  ${res[0]}</textarea
+        <textarea class="code-input" id="dataToCopy0" readonly>${res[0].code}</textarea
         >
       </div>
     </div>
@@ -141,15 +140,14 @@ const editorDisplay = (res)=>{
     <div class="window" id="container1">
       <div class="window-header">
         <div class="action-buttons d-flex algo-header">
-          <img src="./images/ink-96.png" class="Link" >
-          <p style="color:black">Algo Name</p>
+          <a href="${res[i].link}"><img src="./images/ink-96.png" class="Link" ></a>
+          <p style="color:black">${res[i].name}</p>
           <img src="./images/icons8-copy-96.png" id="copied${i}" class="copy">
-          <span id="custom-tooltip${i}">copied!</sapn>
+          <span id="custom-tooltip${i}" class="tootip01">copied!</sapn>
         </div>
       </div>
       <div class="window-body">
-        <textarea class="code-input" id="dataToCopy${i}" readonly>
-  ${res[i]}</textarea
+        <textarea class="code-input" id="dataToCopy${i}" readonly>${res[i].code}</textarea
         >
       </div>
     </div>
@@ -210,6 +208,6 @@ function toDashboard(content, tooltip){
   document.execCommand("copy");
   setTimeout( function() {
       tooltip.style.display = "none";
-  }, 500);
+  }, 1000);
 
 }

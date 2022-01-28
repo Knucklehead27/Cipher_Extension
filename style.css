@@ -756,14 +756,15 @@ input[type="submit"] {
   height: 36px; 
 }
 
-#custom-tooltip {
+.tootip01 {
   display: none;
-  margin-left:365px;
+  right: 35px;
+  height: 32px;
   padding: 5px 12px;
   background-color: #00B1FD;
   border-radius: 4px;
   color: #fff;
-  position: relative;
-  top: 35px;
+  position: fixed;
+  top: 130px;
   z-index: 9;
 }

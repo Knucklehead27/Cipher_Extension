@@ -103,7 +103,7 @@ function autocomplete(inp, arr) {
 
 const fetchlist = async ()=>{
   try {
-    await axios.get("http://localhost:5000/algoList").then(function (response) {
+    await axios.get("https://algo-extension.herokuapp.com/algoList").then(function (response) {
       let option = response.data.list;
       // console.log(option);
       autocomplete(document.getElementById("myInput"), option);
@@ -187,7 +187,7 @@ const bringCode = async ()=>{
   // console.log("here");
   const val = document.getElementById("myInput").value;
   if(val!=""){
-    await axios.get(`http://localhost:5000/algo/?filter=${val}`).then(function (response) {
+    await axios.get(`https://algo-extension.herokuapp.com/algo/?filter=${val}`).then(function (response) {
         let res = response.data.algoArray;
         editorDisplay(res);
       });

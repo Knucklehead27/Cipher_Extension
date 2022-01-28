@@ -103,7 +103,7 @@ function autocomplete(inp, arr) {
 
 const fetchlist = async ()=>{
   try {
-    await axios.get("https://algo-extension.herokuapp.com/algoList").then(function (response) {
+    await axios.get("http://localhost:5000/algoList").then(function (response) {
       let option = response.data.list;
       // console.log(option);
       autocomplete(document.getElementById("myInput"), option);
@@ -123,7 +123,7 @@ const editorDisplay = (res)=>{
     <div class="window" id="container1">
       <div class="window-header">
         <div class="action-buttons d-flex algo-header">
-          <a href="${res[0].link}"><img src="./images/ink-96.png" class="Link"></a>
+          <a href="${res[0].link}" target="_blank"><img src="./images/ink-96.png" class="Link"></a>
           <p style="color:black">${res[0].name}</p>
           <img src="./images/icons8-copy-96.png" id="copied0" class="copy"></div>
           <span id="custom-tooltip0" class="tootip01">copied!</sapn>
@@ -140,7 +140,7 @@ const editorDisplay = (res)=>{
     <div class="window" id="container1">
       <div class="window-header">
         <div class="action-buttons d-flex algo-header">
-          <a href="${res[i].link}"><img src="./images/ink-96.png" class="Link" ></a>
+          <a href="${res[i].link}" target="_blank"><img src="./images/ink-96.png" class="Link" ></a>
           <p style="color:black">${res[i].name}</p>
           <img src="./images/icons8-copy-96.png" id="copied${i}" class="copy">
           <span id="custom-tooltip${i}" class="tootip01">copied!</sapn>
@@ -187,7 +187,7 @@ const bringCode = async ()=>{
   // console.log("here");
   const val = document.getElementById("myInput").value;
   if(val!=""){
-    await axios.get(`https://algo-extension.herokuapp.com/algo/?filter=${val}`).then(function (response) {
+    await axios.get(`http://localhost:5000/algo/?filter=${val}`).then(function (response) {
         let res = response.data.algoArray;
         editorDisplay(res);
       });

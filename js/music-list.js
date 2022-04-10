@@ -191,6 +191,20 @@ const bringCode = async ()=>{
         let res = response.data.algoArray;
         editorDisplay(res);
       });
+    }else{
+      codeEdi.innerHTML = `<div class="carousel-item active">
+  <div class="window" id="container1">
+    <div class="window-header">
+      <div class="action-buttons"></div>
+    </div>
+    <div class="window-body">
+      <textarea class="code-input" readonly>
+Search for any algorithm in the search bar 
+       and if you want to contribute to our open source then please click on contribute button.</textarea
+      >
+    </div>
+  </div>
+</div>`
     }
 }
 document.getElementById("submitBtn").addEventListener("click", ()=>{

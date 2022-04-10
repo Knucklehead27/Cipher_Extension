@@ -1,8 +1,8 @@
 {
-    "name": "Constest Update",
-    "version": "0.0.4",
+    "name": "Algo Extension",
+    "version": "0.0.5",
     "manifest_version": 3,
-    "browser_action": {
+    "action": {
         "default_popup": "popup.html",
         "default_icon": "logo.png"
     },
@@ -11,10 +11,10 @@
         "48": "logo.png",
         "128": "logo.png"
     },
-    "permissions": [
-      
-      "https://*/",
-      "http://*/"
-    ]
+    "host_permissions": [
+      "https://kontests.net/*",
+      "https://algo-extension.herokuapp.com/*"
+    ],
+    
     
 }

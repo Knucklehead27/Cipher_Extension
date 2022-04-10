@@ -40,98 +40,106 @@ const display = async (result) => {
   let list = [];
   // console.log(result);
   contestDetails.innerHTML = ``;
-  let i = 0;
-  await result.forEach((element) => {
-    var contestIcon;
-    if (element.site == "CodeForces") {
-      contestIcon = "simple-icons:codeforces";
-    } else if (element.site == "CodeChef") {
-      contestIcon = "simple-icons:codechef";
-    } else if (element.site == "LeetCode") {
-      contestIcon = "simple-icons:leetcode";
-    } else if (element.site == "HackerEarth") {
-      contestIcon = "simple-icons:hackerearth";
-    } else if (element.site == "HackerRank") {
-      contestIcon = "cib:hackerrank";
-    } else if (element.site == "KickStart") {
-      contestIcon = "tabler:brand-kickstarter";
-    } else if (element.site == "AtCoder") {
-      contestIcon = "";
-    } else if (element.site == "TopCoder") {
-      contestIcon = "cib:topcoder";
-    }
-    const startTime = element.start_time.match(/\d\d:\d\d/);
-    const endTime = element.end_time.match(/\d\d:\d\d/);
+  if(result.length == 0) {
+    contestDetails.innerHTML = 
+    `<div class="nothing">
+    <img src="./images/icons8-meditation-64.png" alt="image" height="64px" width= "64px" style=" align-self:center">
+      <h4 style = "text-align: center">No Worries</h4> 
+    </div>`
+  }
+  else {
+    let i = 0;
+    await result.forEach((element) => {
+      var contestIcon;
+      if (element.site == "CodeForces") {
+        contestIcon = "simple-icons:codeforces";
+      } else if (element.site == "CodeChef") {
+        contestIcon = "simple-icons:codechef";
+      } else if (element.site == "LeetCode") {
+        contestIcon = "simple-icons:leetcode";
+      } else if (element.site == "HackerEarth") {
+        contestIcon = "simple-icons:hackerearth";
+      } else if (element.site == "HackerRank") {
+        contestIcon = "cib:hackerrank";
+      } else if (element.site == "KickStart") {
+        contestIcon = "tabler:brand-kickstarter";
+      } else if (element.site == "AtCoder") {
+        contestIcon = "";
+      } else if (element.site == "TopCoder") {
+        contestIcon = "cib:topcoder";
+      }
+      const startTime = element.start_time.match(/\d\d:\d\d/);
+      const endTime = element.end_time.match(/\d\d:\d\d/);
 
-    var date = new Date(element.start_time);
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    var year = date.getFullYear();
-    var startDate = day + "/" + month + "/" + year;
+      var date = new Date(element.start_time);
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var year = date.getFullYear();
+      var startDate = day + "/" + month + "/" + year;
 
-    date = new Date(element.end_time);
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    var year = date.getFullYear();
-    var endDate = day + "/" + month + "/" + year;
-    var contestName = element.name;
-    contestDetails.innerHTML += `<details>
-    <summary class="collapsible"  id="c_list${i}">
-    <div class="row content-bar">
-    <div class="col-2">
-    <span
-    class="iconify"
-    data-icon=${contestIcon}
-    style="color: #6ecaff"
-    id="icon-size"
-    ></span>
-    </div>
-    
-    <div class="col-6">${contestName}</div>
-    
-    <div class="col-2">${startTime}</div>
-    
-    <div class="col-2">${startDate}</div>
-    </div>
-    </summary>
-    <div class="content" id="info${i}">
-    <div class="row">
-    <div class="col-2">
-    <a href=${element.url} target="blank">
-    <img
-    src="./assets/logo/link_icon.png"
-    alt=""
-    target="_blank"
-    style="
-    width: 30px;
-    height: 30px;
-    padding: 5px 5px 1px 0px;
-    align-content: left;
-              "
-              />
-              </a>
-              </div>
-              
-              <div
-              class="col-6"
-              style="font-size: small; padding: 6px 0px 1px 0px"
-              >
-              ${startTime} - ${endTime}
-              </div>
-              
-              <div
-              class="col-4"
-              style="font-size: small; padding: 6px 0px 1px 0px"
-              >
-              ${startDate} - ${endDate}
-              </div>
-              </div>
-              </div>
-              </details>`;
+      date = new Date(element.end_time);
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var year = date.getFullYear();
+      var endDate = day + "/" + month + "/" + year;
+      var contestName = element.name;
+      contestDetails.innerHTML += `<details>
+      <summary class="collapsible"  id="c_list${i}">
+      <div class="row content-bar">
+      <div class="col-2">
+      <span
+      class="iconify"
+      data-icon=${contestIcon}
+      style="color: #6ecaff"
+      id="icon-size"
+      ></span>
+      </div>
+      
+      <div class="col-6">${contestName}</div>
+      
+      <div class="col-2">${startTime}</div>
+      
+      <div class="col-2">${startDate}</div>
+      </div>
+      </summary>
+      <div class="content" id="info${i}">
+      <div class="row">
+      <div class="col-2">
+      <a href=${element.url} target="blank">
+      <img
+      src="./assets/logo/link_icon.png"
+      alt=""
+      target="_blank"
+      style="
+      width: 30px;
+      height: 30px;
+      padding: 5px 5px 1px 0px;
+      align-content: left;
+                "
+                />
+                </a>
+                </div>
+                
+                <div
+                class="col-6"
+                style="font-size: small; padding: 6px 0px 1px 0px"
+                >
+                ${startTime} - ${endTime}
+                </div>
+                
+                <div
+                class="col-4"
+                style="font-size: small; padding: 6px 0px 1px 0px"
+                >
+                ${startDate} - ${endDate}
+                </div>
+                </div>
+                </div>
+                </details>`;
 
-    i++;
-  });
-
+      i++;
+    });
+  }
   // console.log("Result", result);
 };
 
